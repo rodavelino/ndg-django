@@ -32,7 +32,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Include the NDG UI
-    (r'^', include('ndg.ui.urls')),
+    (r'^', include('ndg-django.ui.urls')),
 
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 

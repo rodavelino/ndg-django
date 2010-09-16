@@ -90,7 +90,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'ndg.urls'
+ROOT_URLCONF = 'ndg-django.urls'
 
 TEMPLATE_DIRS = (
     os.path.dirname(__file__) + '/templates',
@@ -108,7 +108,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     #ndg related apps
     'registration',
-    'ndg.ui',
+    'ndg-django.ui',
     # django-jython
     'doj',
 )

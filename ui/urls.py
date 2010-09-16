@@ -33,11 +33,11 @@ from django.views.generic.simple import direct_to_template
 # urls for ui
 urlpatterns = patterns('',
     (r'^$', direct_to_template,{ 'template': 'ui/index.html' }, 'index'),
-    (r'^main/', 'ndg.ui.views.main'),
+    (r'^main/', 'ndg-django.ui.views.main'),
 )
      
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/roda/Web/django_projects/ndg/media'}),
+        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
