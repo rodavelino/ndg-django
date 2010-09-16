@@ -25,6 +25,7 @@
 
 import os
 
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -67,7 +68,13 @@ MEDIA_ROOT = os.path.dirname(__file__) + '/media'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http;//127.0.0.1/admin_media/'
+# Comment this when deploying to jboss and uncomment the MEDIA_URL 
+# in the next section
+#MEDIA_URL = 'http://127.0.0.1/admin_media/'
+
+# Serve static files inside the same servlet context as ndg when 
+# deploying to jboss
+MEDIA_URL = '/site_media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -82,6 +89,15 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
 #     'django.template.loaders.eggs.load_template_source',
+)
+
+# 
+TEMPLATE_CONTEXT_PROCESSORS  = (
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request', 
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,7 +137,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 EMAIL_HOST = 'smtp.indt.org'
 EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'ndg@indt.org'
-LOGIN_REDIRECT_URL = '/main'
+LOGIN_REDIRECT_URL = '../../main'
 
-# Turn debugging on/off
+# Turn debugging on/off. False for deployment
 DEBUG = True
